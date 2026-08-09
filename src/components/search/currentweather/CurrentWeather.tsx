@@ -50,7 +50,7 @@ type CurrentWeatherProps = {
 };
 
 const CurrentWeather = ({ data,forecast }: CurrentWeatherProps) => {
-  if(!data){
+  if(!data || !forecast){
     return null;
   }
 
