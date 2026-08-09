@@ -1,8 +1,7 @@
 import { useState } from "react";
-import type { ForecastData } from "../types/weather";
+import type { ForecastData } from "../types/forecast";
 
 
-const a:number= 10
 const WEEK_DAYS = [
   "Monday",
   "Tuesday",

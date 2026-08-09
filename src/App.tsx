@@ -2,7 +2,7 @@ import { useState } from "react";
 import CurrentWeather from "./components/search/currentweather/CurrentWeather";
 import Search, { type CityOption } from "./components/search/Search";
 import Forecast from "./components/forecast/Forecast";
-import  type {ForecastData}  from "./components/types/weather";
+import  type {ForecastData}  from "./components/types/forecast";
 
 
 const WEATHERAPI = import.meta.env.VITE_WEATHER_API;
