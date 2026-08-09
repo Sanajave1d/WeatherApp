@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { ForecastData } from "../types/weather";
 
 
+const a:number= 10
 const WEEK_DAYS = [
   "Monday",
   "Tuesday",
@@ -18,7 +19,7 @@ type ForecastProps = {
 const Forecast = ({ data }:ForecastProps) => {
   const dayInWeek = new Date().getDay();
   const today= new Date()
-
+  
   const forecastDays = WEEK_DAYS.slice(dayInWeek, WEEK_DAYS.length).concat(
     WEEK_DAYS.slice(0, dayInWeek),
   );
