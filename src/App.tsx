@@ -3,12 +3,13 @@ import CurrentWeather from "./components/search/currentweather/CurrentWeather";
 import Search, { type CityOption } from "./components/search/Search";
 import Forecast from "./components/forecast/Forecast";
 
+
 const WEATHERAPI = import.meta.env.VITE_WEATHER_API;
 const API_URL = "https://api.openweathermap.org/data/2.5";
 
 const App = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
-  const [forecast, setForecast] = useState({});
+  const [forecast, setForecast] = useState<any>(null);;
 
   const handleOnSearchChange = (searchData: CityOption) => {
     const { latitude: lat, longitude: lon, label } = searchData;
@@ -31,7 +32,6 @@ const App = () => {
         console.error("Weather API error:", error);
       });
 
-    // console.log(currentWeather, forecast);
   };
   return (
     <>

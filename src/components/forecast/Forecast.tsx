@@ -68,7 +68,6 @@ const Forecast = ({ data }:ForecastProps) => {
     <div className=" font-[Rubik] flex flex-col gap-5 text-white mt-5 w-xs p-2 px-4 border border-white/10 shadow-lg rounded-xl">
       <h2 className="text-gray-600">Seven Days Forecast</h2>
       {data.list.slice(0, 7).map((item, idx) => {
-        console.log(item);
 
         return (
           <div key={idx} className="text-white  ">
