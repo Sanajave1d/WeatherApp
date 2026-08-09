@@ -1,11 +1,52 @@
 
+type WeatherInfo = {
+    description: string;
+    icon: string;
+};
+
+type MainWeather = {
+    temp: number;
+    feels_like: number;
+    humidity: number;
+};
+
+type Wind = {
+    speed: number;
+};
+
 type CurrentWeatherData = {
-  city: string;
-  weather?: { description: string }[];
+    city: string;
+    weather: WeatherInfo[];
+    main: MainWeather;
+    wind: Wind;
+};
+
+type ForecastItem = {
+    dt: number;
+    pop: number;
+    main: {
+        temp: number;
+        temp_min: number;
+        temp_max: number;
+        feels_like: number;
+        humidity: number;
+    };
+    weather: {
+        description: string;
+        icon: string;
+    }[];
+    wind: {
+        speed: number;
+    };
+};
+
+type ForecastData = {
+    list: ForecastItem[];
 };
 
 type CurrentWeatherProps = {
-  data: CurrentWeatherData | null;
+    data: CurrentWeatherData | null;
+    forecast: ForecastData;
 };
 
 const CurrentWeather = ({ data,forecast }: CurrentWeatherProps) => {

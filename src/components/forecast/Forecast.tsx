@@ -9,7 +9,34 @@ const WEEK_DAYS = [
   "Saturday",
   "Sunday",
 ];
-const Forecast = ({ data }) => {
+
+type ForecastItem = {
+    dt: number;
+    pop: number;
+    main: {
+        temp: number;
+        temp_min: number;
+        temp_max: number;
+        feels_like: number;
+        humidity: number;
+    };
+    weather: {
+        description: string;
+        icon: string;
+    }[];
+    wind: {
+        speed: number;
+    };
+};
+
+type ForecastData = {
+    list: ForecastItem[];
+};
+
+type ForecastProps = {
+    data: ForecastData | null;
+};
+const Forecast = ({ data }:ForecastProps) => {
   const dayInWeek = new Date().getDay();
   const today= new Date()
 
