@@ -2,6 +2,7 @@ import { useState } from "react";
 import CurrentWeather from "./components/search/currentweather/CurrentWeather";
 import Search, { type CityOption } from "./components/search/Search";
 import Forecast from "./components/forecast/Forecast";
+import  type {ForecastData}  from "./components/types/weather";
 
 
 const WEATHERAPI = import.meta.env.VITE_WEATHER_API;
@@ -9,7 +10,7 @@ const API_URL = "https://api.openweathermap.org/data/2.5";
 
 const App = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
-  const [forecast, setForecast] = useState<any>(null);;
+  const [forecast, setForecast] = useState<ForecastData | null>(null);
 
   const handleOnSearchChange = (searchData: CityOption) => {
     const { latitude: lat, longitude: lon, label } = searchData;

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import type { ForecastData } from "../types/weather";
+
 
 const WEEK_DAYS = [
   "Monday",
@@ -9,29 +11,6 @@ const WEEK_DAYS = [
   "Saturday",
   "Sunday",
 ];
-
-type ForecastItem = {
-    dt: number;
-    pop: number;
-    main: {
-        temp: number;
-        temp_min: number;
-        temp_max: number;
-        feels_like: number;
-        humidity: number;
-    };
-    weather: {
-        description: string;
-        icon: string;
-    }[];
-    wind: {
-        speed: number;
-    };
-};
-
-type ForecastData = {
-    list: ForecastItem[];
-};
 
 type ForecastProps = {
     data: ForecastData | null;
@@ -50,7 +29,7 @@ const Forecast = ({ data }:ForecastProps) => {
     return null;
   }
 
-  const todaysForecast = data.list.filter((item) => {
+  const todaysForecast = data.list.filter((item: ForecastData["list"][number]) => {
     const date = new Date(item.dt * 1000);
     return (
       date.getDate() === today.getDate() &&
@@ -59,7 +38,7 @@ const Forecast = ({ data }:ForecastProps) => {
     );
   });
 
-  let rainprop = Math.max(...todaysForecast.map((item) => item.pop));
+  let rainprop = Math.max(...todaysForecast.map((item: ForecastData["list"][number]) => item.pop));
   if (rainprop < 0) {
     rainprop = 0;
   }
@@ -67,7 +46,7 @@ const Forecast = ({ data }:ForecastProps) => {
   return (
     <div className=" font-[Rubik] flex flex-col gap-5 text-white mt-5 w-xs p-2 px-4 border border-white/10 shadow-lg rounded-xl">
       <h2 className="text-gray-600">Seven Days Forecast</h2>
-      {data.list.slice(0, 7).map((item, idx) => {
+      {data.list.slice(0, 7).map((item: ForecastData["list"][number], idx) => {
 
         return (
           <div key={idx} className="text-white  ">
