@@ -46,7 +46,7 @@ type ForecastData = {
 
 type CurrentWeatherProps = {
     data: CurrentWeatherData | null;
-    forecast: ForecastData;
+    forecast: ForecastData|null;
 };
 
 const CurrentWeather = ({ data,forecast }: CurrentWeatherProps) => {
